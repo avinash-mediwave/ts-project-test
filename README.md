@@ -88,6 +88,17 @@ how eslint and prettier behave.
 $ npx husky add .husky/pre-commit "npm run prettier-format && npm run lint"
 ```
 
+### Catering multiple dev operating systems
+
+```
+$ npm i -D run-script-os
+```
+
+Commands like `rm`, `ls` are specific to linux and mac(darwin). This package
+gives the same interface for these actions via one command in `package.json`.
+
+Check the `prettier-format` script for an example.
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
