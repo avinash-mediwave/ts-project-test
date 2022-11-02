@@ -88,6 +88,23 @@ how eslint and prettier behave.
 $ npx husky add .husky/pre-commit "npm run prettier-format && npm run lint"
 ```
 
+We have a problem with this approach. All files will get a lint check and
+formatted, regardless of whether they are new staged files. We dont want that.
+Hence [lint-staged](https://github.com/okonet/lint-staged)
+
+```
+$ npm i lint-staged
+```
+
+Create a `.lintstagedrc` file with the commands we need to run for
+the git staged files. See [examples](https://github.com/okonet/lint-staged#examples).
+
+Update our old husky `pre-commit` hook to say
+
+```
+npx lint-staged
+```
+
 ### Catering multiple dev operating systems
 
 ```
