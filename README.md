@@ -1,8 +1,11 @@
 # testing project skeleton
 
+A list of things to do for a sample express project.
+
 - [ ] typescript setup
 - [ ] e2e tests
 - [ ] commit hooks
+  - [ ] commit message formatting
   - [ ] prettier formatting
   - [ ] eslint
 
@@ -62,5 +65,5 @@ $ npm i -D ts-node-dev typescript @types/node @types/express
 $ npx tsc --init
 ```
 
-The last `tsc` command generates the `tsconfig.json` file needed to
-compile js from ts files.
+The last `tsc` command generates the `tsconfig.json` file needed by
+the typescript compiler to compile js from ts files.
