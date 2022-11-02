@@ -67,3 +67,29 @@ $ npx tsc --init
 
 The last `tsc` command generates the `tsconfig.json` file needed by
 the typescript compiler to compile js from ts files.
+
+Eslint and prettier are for linting and formatting our code respectively
+
+```
+$ npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+$ npm install --save-dev prettier
+$ npm install --save-dev eslint-config-prettier eslint-plugin-prettier
+```
+
+Have the eslint and prettier plugins installed in vscode.
+
+Create `.eslintignore`, `.eslintrc` and `.prettierrc` files. These configure
+how eslint and prettier behave.
+
+- Add `prettier-format` script to `package.json`
+- Add `lint` script to `package.json`
+
+```
+$ npx husky add .husky/pre-commit "npm run prettier-format && npm run lint"
+```
+
+## References
+
+- <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
+- <https://github.com/stemmlerjs/simple-typescript-starter>
+- <https://www.freecodecamp.org/news/how-to-use-commitlint-to-write-good-commit-messages/>
