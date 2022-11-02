@@ -4,10 +4,10 @@ A list of things to do for a sample express project.
 
 - [ ] typescript setup
 - [ ] e2e tests
-- [ ] commit hooks
-  - [ ] commit message formatting
-  - [ ] prettier formatting
-  - [ ] eslint
+- [X] commit hooks
+  - [X] commit message formatting
+  - [X] prettier formatting
+  - [X] eslint
 
 ## Notes
 
