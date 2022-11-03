@@ -2,14 +2,26 @@
 
 A list of things to do for a sample express project.
 
-- [ ] typescript setup
+- [X] typescript setup
 - [ ] e2e tests
 - [X] commit hooks
   - [X] commit message formatting
   - [X] prettier formatting
   - [X] eslint
 
-## Notes
+## The project
+
+This is a simple CRUD typescript rest api. The postman collection is in
+the `contrib` folder.
+
+First steps.
+
+```
+$ nvm use
+$ npm i
+$ npm run prepare
+```
+## Notes on how the project is setup
 
 ### Locking npm and node versions
 
@@ -56,6 +68,24 @@ fix(server): send cors headers
 ```
 
 Read more at <https://github.com/conventional-changelog/commitlint>
+
+Default list includes
+
+```
+[
+  'build',
+  'chore',
+  'ci',
+  'docs',
+  'feat',
+  'fix',
+  'perf',
+  'refactor',
+  'revert',
+  'style',
+  'test'
+];
+```
 
 ### Setting up a typescript express project
 
@@ -116,8 +146,25 @@ gives the same interface for these actions via one command in `package.json`.
 
 Check the `prettier-format` script for an example.
 
+### End to end testing
+
+```
+$ npm i -D supertest jest ts-jest @types/jest @types/supertest
+```
+
+Update `tsconfig.json` to skip compiling test files
+
+```
+$ npx ts-jest config:init
+```
+
+Update `package.json` to include `test` script.
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
 - <https://github.com/stemmlerjs/simple-typescript-starter>
 - <https://www.freecodecamp.org/news/how-to-use-commitlint-to-write-good-commit-messages/>
+- <https://github.com/kriscfoster/typescript-postgres-typeorm> & <https://www.youtube.com/watch?v=Ml51d87uoPo>
+- <https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/>
+- <https://dev.to/nathan_sheryak/how-to-test-a-typescript-express-api-with-jest-for-dummies-like-me-4epd>
