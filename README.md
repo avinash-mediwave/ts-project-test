@@ -158,8 +158,13 @@ Update `tsconfig.json` to skip compiling test files
 $ npx ts-jest config:init
 ```
 
+Update `package.json` to include `test` script.
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
 - <https://github.com/stemmlerjs/simple-typescript-starter>
 - <https://www.freecodecamp.org/news/how-to-use-commitlint-to-write-good-commit-messages/>
+- <https://github.com/kriscfoster/typescript-postgres-typeorm> & <https://www.youtube.com/watch?v=Ml51d87uoPo>
+- <https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/>
+- <https://dev.to/nathan_sheryak/how-to-test-a-typescript-express-api-with-jest-for-dummies-like-me-4epd>
