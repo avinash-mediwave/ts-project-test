@@ -1,10 +1,13 @@
 import request from 'supertest';
 
-import app from '../src/server';
+import createServer from '../src/server';
 
-describe('Test app.ts', () => {
-  test('Catch-all route', async () => {
-    const res = await request(app).get('/');
-    expect(res.body).toEqual({ message: 'Allo! Catch-all route.' });
+const app = createServer();
+
+describe('Test the health endpoint', () => {
+  test('It should give OK response', async () => {
+    const response = await request(app).get('/api/health');
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toEqual({ message: 'OK' });
   });
 });
