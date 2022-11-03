@@ -9,7 +9,11 @@ A list of things to do for a sample express project.
   - [X] prettier formatting
   - [X] eslint
 
-## Notes
+## The project
+
+This is a simple CRUD typescript rest api. The postman collection is in
+the `contrib` folder.
+## Notes on how the project is setup
 
 ### Locking npm and node versions
 
