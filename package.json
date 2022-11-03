@@ -10,6 +10,7 @@
     "pnpm": "please-use-npm"
   },
   "scripts": {
+    "prepare": "husky install",
     "lint": "eslint . --ext .ts",
     "prettier-format": "run-script-os",
     "prettier-format:win32": "prettier --config .prettierrc \"./src/**/*.ts\" --write",

@@ -2,7 +2,7 @@
 
 A list of things to do for a sample express project.
 
-- [ ] typescript setup
+- [X] typescript setup
 - [ ] e2e tests
 - [X] commit hooks
   - [X] commit message formatting
@@ -13,6 +13,14 @@ A list of things to do for a sample express project.
 
 This is a simple CRUD typescript rest api. The postman collection is in
 the `contrib` folder.
+
+First steps.
+
+```
+$ nvm use
+$ npm i
+$ npm run prepare
+```
 ## Notes on how the project is setup
 
 ### Locking npm and node versions
@@ -60,6 +68,24 @@ fix(server): send cors headers
 ```
 
 Read more at <https://github.com/conventional-changelog/commitlint>
+
+Default list includes
+
+```
+[
+  'build',
+  'chore',
+  'ci',
+  'docs',
+  'feat',
+  'fix',
+  'perf',
+  'refactor',
+  'revert',
+  'style',
+  'test'
+];
+```
 
 ### Setting up a typescript express project
 
