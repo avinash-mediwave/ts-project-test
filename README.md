@@ -146,6 +146,18 @@ gives the same interface for these actions via one command in `package.json`.
 
 Check the `prettier-format` script for an example.
 
+### End to end testing
+
+```
+$ npm i -D supertest jest ts-jest @types/jest @types/supertest
+```
+
+Update `tsconfig.json` to skip compiling test files
+
+```
+$ npx ts-jest config:init
+```
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
