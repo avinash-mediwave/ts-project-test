@@ -1,40 +1,40 @@
-interface IPost {
-  id: number;
-  content: string;
-}
+import prisma from '../prisma';
 
-const posts: IPost[] = [{ id: 1234, content: 'This is a simple content' }];
+// https://www.prisma.io/docs/concepts/components/prisma-client/crud
 
-export const getAllPostsService = () => posts;
+export const getAllPostsService = async () => await prisma.post.findMany();
 
-export const getOnePostService = (id: number) => posts.find((p) => p.id == id);
+export const getOnePostService = async (id: string) =>
+  await prisma.post.findUnique({
+    where: {
+      id,
+    },
+  });
 
-export const removePostService = (id: number): number => {
-  const idx = posts.findIndex((p) => p.id === id);
-  if (idx === -1) {
-    return -1;
-  }
-  posts.splice(idx, 1);
-  return idx;
+export const removePostService = async (id: string) => {
+  return await prisma.post.delete({
+    where: {
+      id,
+    },
+  });
 };
 
-export const updatePostService = (
-  id: number,
+export const updatePostService = async (
+  id: string,
   payload: { content: string },
-): boolean => {
-  const idx = posts.findIndex((p) => p.id === id);
-  if (idx === -1) {
-    return false;
-  }
-  posts[idx]['content'] = payload.content;
-  return true;
+) => {
+  return await prisma.post.update({
+    where: { id },
+    data: {
+      content: payload.content,
+    },
+  });
 };
 
-export const createPostService = (payload: { content: string }): number => {
-  const post = {
-    ...payload,
-    id: new Date().getTime(),
-  };
-  posts.push(post);
-  return post.id;
+export const createPostService = async (payload: { content: string }) => {
+  return await prisma.post.create({
+    data: {
+      content: payload.content,
+    },
+  });
 };

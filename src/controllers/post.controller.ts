@@ -15,16 +15,16 @@ export async function createPostHandler(req: Request, res: Response) {
       message: 'Content is empty',
     });
   }
-  const post = createPostService({
+  const post = await createPostService({
     content: req.body.content,
   });
   return res.send({
-    data: { id: post },
+    data: { id: post.id },
   });
 }
 
 export async function getPostHandler(req: Request, res: Response) {
-  const post = getOnePostService(Number(req.params.id));
+  const post = await getOnePostService(req.params.id);
   if (!post) {
     return res.status(404).json({
       message: 'Post not found',
@@ -37,7 +37,7 @@ export async function getPostHandler(req: Request, res: Response) {
 }
 
 export async function getAllPostsHandler(req: Request, res: Response) {
-  const posts = getAllPostsService();
+  const posts = await getAllPostsService();
   return res.send({
     data: posts,
   });
@@ -50,7 +50,7 @@ export async function updatePostHandler(req: Request, res: Response) {
     });
   }
 
-  const success = updatePostService(Number(req.params.id), {
+  const success = await updatePostService(req.params.id, {
     content: req.body.content,
   });
 
@@ -68,11 +68,11 @@ export async function updatePostHandler(req: Request, res: Response) {
 }
 
 export async function removePostHandler(req: Request, res: Response) {
-  const status = removePostService(Number(req.params.id));
+  const status = await removePostService(req.params.id);
 
-  if (status === -1) {
+  if (!status) {
     return res.status(404).json({
-      message: 'Post not found',
+      message: 'Post not deleted or not found',
     });
   }
 
