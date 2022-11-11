@@ -160,6 +160,32 @@ $ npx ts-jest config:init
 
 Update `package.json` to include `test` script.
 
+### Prisma
+
+This will be our ORM. We can connect to SQL and NoSQL type dbs with prisma.
+Read more at https://www.prisma.io/docs/getting-started/quickstart
+
+```
+$ npm i -D prisma
+$ npx prisma init --datasource-provider postgresql
+```
+
+The second command will generate a schema.prisma file.
+Install the vscode extension for prisma and add this in your vscode settings
+
+```
+"[prisma]": {
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "Prisma.prisma"
+},
+```
+
+After creating our first model
+
+```
+$ npx prisma migrate dev --name init
+```
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
