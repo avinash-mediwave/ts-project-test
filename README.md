@@ -208,3 +208,4 @@ GRANT ALL PRIVILEGES ON DATABASE "ts_project_citest" to citest_postgres;
 - <https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/>
 - <https://dev.to/nathan_sheryak/how-to-test-a-typescript-express-api-with-jest-for-dummies-like-me-4epd>
 - <https://github.com/ctrlplusb/prisma-pg-jest>
+- <https://github.com/TomDoesTech/Testing-Express-REST-API/blob/main/src/__tests__/user.test.ts>

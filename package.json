@@ -18,8 +18,8 @@
     "prettier-format:default": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "dev": "nodemon src/app.ts",
     "build": "tsc",
-    "test": "jest --testTimeout=5000",
-    "test:coverage": "jest --coverage --testTimeout=5000"
+    "test": "jest --testTimeout=5000 --detectOpenHandles",
+    "test:coverage": "jest --coverage --testTimeout=5000 --detectOpenHandles"
   },
   "keywords": [],
   "author": "",

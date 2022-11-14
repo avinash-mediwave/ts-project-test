@@ -44,39 +44,41 @@ export async function getAllPostsHandler(req: Request, res: Response) {
 }
 
 export async function updatePostHandler(req: Request, res: Response) {
-  if (!req.body.content) {
-    return res.status(400).json({
-      message: 'Content is empty',
+  try {
+    if (!req.body.content) {
+      return res.status(400).json({
+        message: 'Content is empty',
+      });
+    }
+
+    const success = await updatePostService(req.params.id, {
+      content: req.body.content,
     });
-  }
 
-  const success = await updatePostService(req.params.id, {
-    content: req.body.content,
-  });
-
-  if (!success) {
-    return res.status(400).json({
-      message: 'Failed to update post',
+    return res.send({
+      data: {
+        id: req.params.id,
+      },
     });
+  } catch (error) {
+    // TODO: this is just a stupid hack!
+    // prisma will throw an exception if it cant find
+    // the id to update the post with
+    return res.status(400).json({});
   }
-
-  return res.send({
-    data: {
-      id: req.params.id,
-    },
-  });
 }
 
 export async function removePostHandler(req: Request, res: Response) {
-  const status = await removePostService(req.params.id);
+  try {
+    const status = await removePostService(req.params.id);
 
-  if (!status) {
-    return res.status(404).json({
-      message: 'Post not deleted or not found',
+    return res.send({
+      message: 'Post deleted successfully',
     });
+  } catch (error) {
+    // TODO: this is just a stupid hack!
+    // prisma will throw an exception if it cant find
+    // the id to delete the post with
+    return res.status(400).json({});
   }
-
-  return res.send({
-    message: 'Post deleted successfully',
-  });
 }
