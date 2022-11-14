@@ -3,7 +3,7 @@
 A list of things to do for a sample express project.
 
 - [X] typescript setup
-- [ ] e2e tests
+- [x] e2e tests
 - [X] commit hooks
   - [X] commit message formatting
   - [X] prettier formatting
