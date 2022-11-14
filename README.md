@@ -3,7 +3,7 @@
 A list of things to do for a sample express project.
 
 - [X] typescript setup
-- [ ] e2e tests
+- [x] e2e tests
 - [X] commit hooks
   - [X] commit message formatting
   - [X] prettier formatting
@@ -160,6 +160,45 @@ $ npx ts-jest config:init
 
 Update `package.json` to include `test` script.
 
+### Prisma
+
+This will be our ORM. We can connect to SQL and NoSQL type dbs with prisma.
+Read more at https://www.prisma.io/docs/getting-started/quickstart
+
+```
+$ npm i -D prisma
+$ npx prisma init --datasource-provider postgresql
+```
+
+The second command will generate a schema.prisma file.
+Install the vscode extension for prisma and add this in your vscode settings
+
+```
+"[prisma]": {
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "Prisma.prisma"
+},
+```
+
+After creating our first model
+
+```
+$ npx prisma migrate dev --name init
+```
+
+For testing, we need to mock prisma. The following repo is
+used as a reference for our implementation.
+
+- <https://github.com/ctrlplusb/prisma-pg-jest/>
+
+Create a CI test database with
+
+```
+CREATE USER citest_postgres WITH PASSWORD 'citest_postgres';
+CREATE DATABASE ts_project_citest;
+GRANT ALL PRIVILEGES ON DATABASE "ts_project_citest" to citest_postgres;
+```
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
@@ -168,3 +207,5 @@ Update `package.json` to include `test` script.
 - <https://github.com/kriscfoster/typescript-postgres-typeorm> & <https://www.youtube.com/watch?v=Ml51d87uoPo>
 - <https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/>
 - <https://dev.to/nathan_sheryak/how-to-test-a-typescript-express-api-with-jest-for-dummies-like-me-4epd>
+- <https://github.com/ctrlplusb/prisma-pg-jest>
+- <https://github.com/TomDoesTech/Testing-Express-REST-API/blob/main/src/__tests__/user.test.ts>
