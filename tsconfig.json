@@ -1,5 +1,11 @@
 {
-  "exclude": ["./coverage", "./dist", "__tests__", "jest.config.js"],
+  "exclude": [
+    "./coverage",
+    "./dist",
+    "__tests__",
+    "jest.config.js",
+    "prisma/*.ts"
+  ],
 
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */

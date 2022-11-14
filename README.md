@@ -186,6 +186,19 @@ After creating our first model
 $ npx prisma migrate dev --name init
 ```
 
+For testing, we need to mock prisma. The following repo is
+used as a reference for our implementation.
+
+- <https://github.com/ctrlplusb/prisma-pg-jest/>
+
+Create a CI test database with
+
+```
+CREATE USER citest_postgres WITH PASSWORD 'citest_postgres';
+CREATE DATABASE ts_project_citest;
+GRANT ALL PRIVILEGES ON DATABASE "ts_project_citest" to citest_postgres;
+```
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
@@ -194,3 +207,4 @@ $ npx prisma migrate dev --name init
 - <https://github.com/kriscfoster/typescript-postgres-typeorm> & <https://www.youtube.com/watch?v=Ml51d87uoPo>
 - <https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/>
 - <https://dev.to/nathan_sheryak/how-to-test-a-typescript-express-api-with-jest-for-dummies-like-me-4epd>
+- <https://github.com/ctrlplusb/prisma-pg-jest>
