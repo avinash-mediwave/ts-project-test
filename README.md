@@ -199,6 +199,11 @@ CREATE DATABASE ts_project_citest;
 GRANT ALL PRIVILEGES ON DATABASE "ts_project_citest" to citest_postgres;
 ```
 
+## CI check for tests in Github
+
+Setup a github action by choosing "Actions" > "New Workflow" in our
+Guithub repo. Then choose/search for Nodejs.
+
 ## References
 
 - <https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/>
