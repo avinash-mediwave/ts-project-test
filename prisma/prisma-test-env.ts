@@ -23,6 +23,7 @@ class PrismaTestEnvironment extends NodeEnvironment {
     // @ts-ignore
     this.connectionString =
       process.env.CI_TEST_DATABASE_URL ||
+      // @ts-ignore
       `postgresql://citest_postgres:citest_postgres@localhost:5432/ts_project_citest?schema=${this.schema}`;
   }
 
