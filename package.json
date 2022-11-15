@@ -4,19 +4,21 @@
   "description": "A simple skeleton for projects",
   "main": "src/app.ts",
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=16.0.0",
     "npm": ">=8.0.0",
     "yarn": "please-use-npm",
     "pnpm": "please-use-npm"
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky install && npx prisma-generate",
     "lint": "eslint . --ext .ts",
     "prettier-format": "run-script-os",
     "prettier-format:win32": "prettier --config .prettierrc \"./src/**/*.ts\" --write",
     "prettier-format:darwin:linux": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prettier-format:default": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "prisma-generate": "npx prisma generate",
     "dev": "nodemon src/app.ts",
+    "start": "ts-node src/app.ts",
     "build": "tsc",
     "test": "jest --testTimeout=5000 --detectOpenHandles",
     "test:coverage": "jest --coverage --testTimeout=5000 --detectOpenHandles"
