@@ -21,7 +21,9 @@ class PrismaTestEnvironment extends NodeEnvironment {
 
     // Generate the pg connection string for the test schema
     // @ts-ignore
-    this.connectionString = `postgresql://citest_postgres:citest_postgres@localhost:5432/ts_project_citest?schema=${this.schema}`;
+    this.connectionString =
+      process.env.CI_TEST_DATABASE_URL ||
+      `postgresql://citest_postgres:citest_postgres@localhost:5432/ts_project_citest?schema=${this.schema}`;
   }
 
   async setup() {
