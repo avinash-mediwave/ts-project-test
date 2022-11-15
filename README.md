@@ -1,4 +1,4 @@
-# testing project skeleton
+# Testing project skeleton
 
 A list of things to do for a sample express project.
 
