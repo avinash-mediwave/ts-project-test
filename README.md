@@ -8,7 +8,7 @@ A list of things to do for a sample express project.
   - [X] commit message formatting
   - [X] prettier formatting
   - [X] eslint
-
+- [ ] CI test on PR
 ## The project
 
 This is a simple CRUD typescript rest api. The postman collection is in
