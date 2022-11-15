@@ -199,10 +199,17 @@ CREATE DATABASE ts_project_citest;
 GRANT ALL PRIVILEGES ON DATABASE "ts_project_citest" to citest_postgres;
 ```
 
-## CI check for tests in Github
+### CI check for tests in Github
 
 Setup a github action by choosing "Actions" > "New Workflow" in our
-Guithub repo. Then choose/search for Nodejs.
+Github repo. Then choose/search for Nodejs.
+
+For our case, we need to set a url env for postgres in an env variable
+
+Goto Settings > Security > Secrets > Actions
+
+then create an environment secret. Mention this env variable in
+the workflow file in `.github/workflows` folder.
 
 ## References
 
