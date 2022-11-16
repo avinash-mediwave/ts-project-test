@@ -1,5 +1,18 @@
 version: "3.9"
 services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ts-project-test
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
   prisma-postgres-api:
     stdin_open: true
     build:
@@ -7,5 +20,7 @@ services:
       dockerfile: Dockerfile
     container_name: prisma-postgres-ts-api
     ports:
-      - "3000:3456"
+      - "5000:3456"
     restart: always
+volumes:
+  postgres-data:

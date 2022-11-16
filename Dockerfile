@@ -2,7 +2,9 @@ FROM node:18
 WORKDIR /usr
 COPY package.json ./
 COPY tsconfig.json ./
+COPY swagger.json ./
 COPY src ./src
+COPY .env ./
 COPY prisma ./prisma/
 RUN ls -a
 RUN npm install --ignore-scripts
@@ -14,6 +16,8 @@ WORKDIR /usr
 COPY prisma ./prisma/
 COPY --from=0 /usr/build .
 COPY package.json ./
+COPY swagger.json ./
+COPY .env ./
 RUN npm install --ignore-scripts
 RUN npx prisma generate
 ##--only=production
